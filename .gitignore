@@ -6,7 +6,7 @@
 
 # Env file
 .env
-application.env
+./infastracture/.env
 
 # BlueJ files
 *.ctxt
