@@ -3,8 +3,8 @@ spring:
     import: "optional:dotenv:infrastructure/.env"
   datasource:
     url: jdbc:postgresql://localhost:5432/${DB_NAME:musicboxedDB}
-    username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:devpass123}
+    username: ${DB_USER:admin}
+    password: ${DB_PASSWORD:admin123}
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
     enabled: true

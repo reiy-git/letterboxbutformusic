@@ -1,4 +1,4 @@
-package com.example.musicboxed_backend;
+package com.musicboxed;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
