@@ -1,3 +1,4 @@
+﻿
 # infrastructure/docker-compose.yml
 # MusicLog Infrastructure Stack
 # Run: docker compose up -d
@@ -6,15 +7,17 @@ services:
     image: postgres:15
     container_name: musicboxed-db
     environment:
-      POSTGRES_DB: ${DB_NAME:-musicboxedDB}
-      POSTGRES_USER: ${DB_USER:-admin}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-admin123}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
-      - pg_data:/var/lib/postgresql/data
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    - pg_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 10s
       timeout: 5s
       retries: 5

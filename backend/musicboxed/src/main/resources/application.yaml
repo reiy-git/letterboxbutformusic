@@ -1,13 +1,18 @@
+# src/main/resources/application.yaml
 spring:
   config:
-    import: "optional:dotenv:infrastructure/.env"
+    import: "optional:classpath:infrastructure.properties"
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/${DB_NAME:musicboxedDB}
-    username: ${DB_USER:admin}
-    password: ${DB_PASSWORD:admin123}
+    url: jdbc:postgresql://localhost:5432/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
     enabled: true
+
   jpa:
     hibernate:
-      ddl-auto: validate 
+      ddl-auto: validate
+

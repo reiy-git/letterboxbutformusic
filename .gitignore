@@ -6,7 +6,8 @@
 
 # Env file
 .env
-./infastracture/.env
+./infrastracture/.env
+infrastructure.properties
 
 # BlueJ files
 *.ctxt
